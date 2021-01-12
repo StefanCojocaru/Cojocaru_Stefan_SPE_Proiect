@@ -1,0 +1,60 @@
+﻿@page
+@model Cojocaru_Stefan_SPE_Proiect.Pages.Phones.DetailsModel
+
+@{
+    ViewData["Title"] = "View";
+}
+<style>
+    .UpdateButton {
+        background-color: coral;
+        border: none;
+        padding: 7px 15px;
+        text-align: center;
+        display: inline-block;
+    }
+</style>
+
+<h1>The specifications of the smarthphone</h1>
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone.Brand)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Phone.Brand)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Phone.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone.RAM)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Phone.RAM)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone.Storage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Phone.Storage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Phone.Year)
+        </dd>
+    </dl>
+</div>
+<div class="UpdateButton">
+    <a asp-page="./Edit" asp-route-id="@Model.Phone.ID" style="color:antiquewhite">UPDATE INFO</a>
+    
+</div>
+<a asp-page="./Index">Back</a>
+

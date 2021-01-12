@@ -1,0 +1,87 @@
+﻿@page
+@model Cojocaru_Stefan_SPE_Proiect.Pages.Phones.IndexModel
+
+@{
+    ViewData["Title"] = "Phones";
+}
+<style>
+    .BuyButton {
+        background-color: #4CAF50; 
+        border: none;
+        padding: 7px 15px;
+        text-align: center;
+        display: inline-block;
+    }
+    .DetailsButton {
+        background-color: cadetblue;
+        border: none;
+        padding: 7px 15px;
+        text-align: center;
+        display: inline-block;
+    }
+    .SellButton {
+        background-color: orangered;
+        border: none;
+        padding: 7px 15px;
+        text-align: center;
+        display: inline-block;
+    }
+</style>
+
+<h1>AVAILABLE SMARTPHONES</h1>
+
+<p>
+    <div class="SellButton">
+    <a asp-page="Create" style="color:antiquewhite">SELL</a>
+    </div>
+</p>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by Brand: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort">
+                    @Html.DisplayNameFor(model => model.Phone[0].Brand)
+                </a>
+                
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone[0].Model)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Phone)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+
+                <td>
+                    
+                    <div class="DetailsButton">
+                    <a asp-page="./Details" asp-route-id="@item.ID" style="color:antiquewhite">VIEW</a>
+                    </div>
+                    <div class="BuyButton">
+                        <a asp-page="./Delete" asp-route-id="@item.ID" style="color:antiquewhite">BUY</a>
+                        </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

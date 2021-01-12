@@ -1,0 +1,55 @@
+﻿@page
+@model Cojocaru_Stefan_SPE_Proiect.Pages.Phones.EditModel
+
+@{
+    ViewData["Title"] = "Update Info";
+}
+
+<h1>Update the specifications</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Phone.ID" />
+            <div class="form-group">
+                <label asp-for="Phone.Brand" class="control-label"></label>
+                <input asp-for="Phone.Brand" class="form-control" />
+                <span asp-validation-for="Phone.Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone.Model" class="control-label"></label>
+                <input asp-for="Phone.Model" class="form-control" />
+                <span asp-validation-for="Phone.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone.RAM" class="control-label"></label>
+                <input asp-for="Phone.RAM" class="form-control" />
+                <span asp-validation-for="Phone.RAM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone.Storage" class="control-label"></label>
+                <input asp-for="Phone.Storage" class="form-control" />
+                <span asp-validation-for="Phone.Storage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone.Year" class="control-label"></label>
+                <input asp-for="Phone.Year" class="form-control" />
+                <span asp-validation-for="Phone.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
